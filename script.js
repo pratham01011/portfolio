@@ -230,6 +230,15 @@ function setupContactForm() {
   const statusEl = form.querySelector(".form-status");
   const submitBtn = form.querySelector('button[type="submit"]');
 
+  function setStatus(message, type = "") {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.className = "form-status";
+    if (type) {
+      statusEl.classList.add(type);
+    }
+  }
+
   function setError(input, message) {
     const field = input.closest(".form-field");
     if (!field) return;
@@ -244,6 +253,7 @@ function setupContactForm() {
     const errorEl = field.querySelector(".field-error");
     if (errorEl) errorEl.textContent = "";
     input.classList.remove("field-invalid");
+    setStatus("");
   }
 
   function validateEmail(value) {
@@ -298,29 +308,48 @@ function setupContactForm() {
   [nameInput, emailInput, messageInput].forEach((input) => {
     input.addEventListener("input", () => {
       clearError(input);
-      statusEl.textContent = "";
     });
   });
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    statusEl.textContent = "";
+    setStatus("");
 
     if (!validateForm()) {
-      statusEl.textContent = "Please fix the highlighted fields and try again.";
+      setStatus("Please fix the highlighted fields and try again.", "error");
       return;
     }
 
-    // Simulated submission
+    // Open user's email client with pre-filled email
     setLoading(true);
-    statusEl.textContent = "Sending message...";
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    const subject = `Portfolio contact from ${name}`;
+    const bodyLines = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      "Message:",
+      message,
+    ];
+
+    const mailtoLink = `mailto:cs.pratham01@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+    setStatus("Opening your email client…");
+    window.location.href = mailtoLink;
 
     setTimeout(() => {
       setLoading(false);
       form.reset();
-      statusEl.textContent =
-        "Thank you for reaching out. Your message has been noted (frontend-only demo).";
-    }, 1100);
+      setStatus(
+        "Your email client should now be open with your message. If it didn't open, please email me directly at cs.pratham01@gmail.com.",
+        "success"
+      );
+    }, 800);
   });
 }
 
