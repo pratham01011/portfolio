@@ -884,9 +884,9 @@ textarea {
 
 .form-field input:focus,
 .form-field textarea:focus {
-  border-color: rgba(59, 130, 246, 0.8);
-  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.6);
-  background: rgba(15, 23, 42, 0.98);
+  border-color: rgba(59, 130, 246, 0.9);
+  box-shadow: 0 0 24px rgba(37, 99, 235, 0.6);
+  background: rgba(15, 23, 42, 1);
 }
 
 .form-field input.field-invalid,
@@ -906,14 +906,6 @@ textarea {
   margin-top: 0.6rem;
   font-size: 0.8rem;
   color: var(--text-muted);
-}
-
-.form-status.error {
-  color: #f97373;
-}
-
-.form-status.success {
-  color: #4ade80;
 }
 
 .btn-loader {
@@ -1170,4 +1162,3 @@ textarea {
     flex-direction: column;
   }
 }
-
