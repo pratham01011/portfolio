@@ -23,7 +23,7 @@
     <header class="site-header">
       <div class="container header-inner">
         <div class="logo">         
-          <span class="logo-text">Pratham Shailendra More </span>
+          <span class="logo-text">Pratham More</span>
         </div>
         <nav class="nav">
           <button class="nav-toggle" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
             <div class="hero-orbit">
               <div class="hero-avatar">
                 <img
-                  src="images/profile_pic.jpeg"
+                  src="images/portfolio_pic.jpeg"
                   class="avatar-image"
                   loading="lazy"
                   decoding="async"
@@ -190,13 +190,24 @@
                 <span class="label">Tech Stack</span>
                 <p>HTML, CSS, JavaScript, Backend (Python), Database(MongoDB)</p>
               </div>
-              <a
-                href="https://github.com/pratham01011/Campus360.git"
-                class="btn secondary project-details-btn"
-                data-project="college-management"
-              >
-                Visit Project
-              </a>
+              <div class="project-actions">
+                <a
+                  href="https://github.com/pratham01011/Campus360.git"
+                  class="btn secondary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Visit Project
+                </a>
+                <button
+                  class="btn secondary project-details-btn"
+                  type="button"
+                  data-project="college-management"
+                  data-youtube="https://youtu.be/kbRCF0wIsNQ"
+                >
+                  View Details
+                </button>
+              </div>
             </article>
 
             <article class="project-card glass reveal">
@@ -212,13 +223,24 @@
                 <span class="label">Tech Stack</span>
                 <p>HTML, CSS, JavaScript, Mapping APIs, Database(FireBase)</p>
               </div>
-              <a
-                href="https://pratham01011.github.io/construction-danger/"
-                class="btn secondary project-details-btn"
-                data-project="danger-map"
-              >
-                Visit Project
-              </a>
+              <div class="project-actions">
+                <a
+                  href="https://pratham01011.github.io/construction-danger/"
+                  class="btn secondary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Visit Project
+                </a>
+                <button
+                  class="btn secondary project-details-btn"
+                  type="button"
+                  data-project="danger-map"
+                  data-youtube=""
+                >
+                  View Details
+                </button>
+              </div>
             </article>
 
             <article class="project-card glass reveal">
@@ -558,6 +580,30 @@
           <li>Implemented responsive views so staff can access data across devices.</li>
           <li>Collaborated on backend logic using Python/Java with a relational database.</li>
         </ul>
+
+        <section class="modal-video" data-video-section hidden>
+          <div class="modal-video-header">
+            <span class="label">Video Demo</span>
+            <a
+              class="modal-video-link"
+              data-video-link
+              target="_blank"
+              rel="noopener"
+            >
+              Watch on YouTube
+            </a>
+          </div>
+          <div class="video-embed">
+            <iframe
+              data-video-iframe
+              title="Project demo video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -576,6 +622,30 @@
           <li>Designed hover and tap interactions for quick detail inspection.</li>
           <li>Optimized the interface for both desktop and mobile viewing.</li>
         </ul>
+
+        <section class="modal-video" data-video-section hidden>
+          <div class="modal-video-header">
+            <span class="label">Video Demo</span>
+            <a
+              class="modal-video-link"
+              data-video-link
+              target="_blank"
+              rel="noopener"
+            >
+              Watch on YouTube
+            </a>
+          </div>
+          <div class="video-embed">
+            <iframe
+              data-video-iframe
+              title="Project demo video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
       </div>
     </div>
 

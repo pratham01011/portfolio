@@ -169,15 +169,66 @@ function setupProjectModals() {
   const detailButtons = document.querySelectorAll(".project-details-btn");
   const backdrops = document.querySelectorAll(".modal-backdrop");
 
-  function openModal(projectKey) {
+  function getYouTubeEmbedUrl(inputUrl) {
+    if (!inputUrl) return "";
+    let url;
+    try {
+      url = new URL(inputUrl);
+    } catch {
+      return "";
+    }
+
+    const host = url.hostname.replace(/^www\./, "").toLowerCase();
+    let videoId = "";
+
+    if (host === "youtu.be") {
+      videoId = (url.pathname || "").split("/").filter(Boolean)[0] || "";
+    } else if (host === "youtube.com" || host === "m.youtube.com" || host === "music.youtube.com") {
+      if (url.pathname === "/watch") {
+        videoId = url.searchParams.get("v") || "";
+      } else if (url.pathname.startsWith("/embed/")) {
+        videoId = url.pathname.split("/embed/")[1]?.split(/[?/]/)[0] || "";
+      } else if (url.pathname.startsWith("/shorts/")) {
+        videoId = url.pathname.split("/shorts/")[1]?.split(/[?/]/)[0] || "";
+      }
+    }
+
+    if (!videoId) return "";
+    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+  }
+
+  function setModalVideo(modalBackdrop, youtubeUrl) {
+    const section = modalBackdrop.querySelector("[data-video-section]");
+    const iframe = modalBackdrop.querySelector("[data-video-iframe]");
+    const link = modalBackdrop.querySelector("[data-video-link]");
+
+    if (!section || !iframe || !link) return;
+
+    const embedUrl = getYouTubeEmbedUrl(youtubeUrl);
+    if (!embedUrl) {
+      section.hidden = true;
+      iframe.removeAttribute("src");
+      link.removeAttribute("href");
+      return;
+    }
+
+    section.hidden = false;
+    iframe.setAttribute("src", `${embedUrl}?rel=0&modestbranding=1`);
+    link.setAttribute("href", youtubeUrl);
+  }
+
+  function openModal(projectKey, youtubeUrl) {
     const modal = document.querySelector(`.modal-backdrop[data-modal="${projectKey}"]`);
     if (!modal) return;
+    setModalVideo(modal, youtubeUrl);
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
   }
 
   function closeModal(modal) {
     modal.classList.remove("active");
+    const iframe = modal.querySelector("[data-video-iframe]");
+    if (iframe) iframe.removeAttribute("src");
     document.body.style.overflow = "";
   }
 
@@ -192,7 +243,7 @@ function setupProjectModals() {
       e.preventDefault();
       const key = btn.dataset.project;
       if (!key) return;
-      openModal(key);
+      openModal(key, btn.dataset.youtube || "");
     });
   });
 
