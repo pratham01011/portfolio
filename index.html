@@ -256,12 +256,24 @@
                 <span class="label">Tech Stack</span>
                 <p>HTML, CSS, JavaScript</p>
               </div>
-              <a
-                href="https://pratham01011.github.io/reaction-time-tester/"
-                class="btn secondary"
-              >
-                Visit Project
-              </a>
+              <div class="project-actions">
+                <a
+                  href="https://pratham01011.github.io/reaction-time-tester/"
+                  class="btn secondary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Visit Project
+                </a>
+                <button
+                  class="btn secondary project-details-btn"
+                  type="button"
+                  data-project="reaction-tester"
+                  data-youtube="https://youtu.be/2rdNqQGHRR8"
+                >
+                  View Details
+                </button>
+              </div>
             </article>
             
             <article class="project-card glass reveal">
@@ -296,13 +308,24 @@
                 <span class="label">Tech Stack</span>
                 <p>Python, Segno library, qrcode_artistic, Flask, HTML, CSS</p>
               </div>
-              <a
-                href="https://qr-app-cf0p.onrender.com/"
-                class="btn secondary project-details-btn"
-                data-project="danger-map"
-              >
-                Visit Project
-              </a>
+              <div class="project-actions">
+                <a
+                  href="https://qr-app-cf0p.onrender.com/"
+                  class="btn secondary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Visit Project
+                </a>
+                <button
+                  class="btn secondary project-details-btn"
+                  type="button"
+                  data-project="qr-app"
+                  data-youtube="https://youtu.be/eMSiq25qIKU"
+                >
+                  View Details
+                </button>
+              </div>
             </article>
 
           </div>
@@ -621,6 +644,88 @@
           <li>Integrated external APIs to update danger zones in real time.</li>
           <li>Designed hover and tap interactions for quick detail inspection.</li>
           <li>Optimized the interface for both desktop and mobile viewing.</li>
+        </ul>
+
+        <section class="modal-video" data-video-section hidden>
+          <div class="modal-video-header">
+            <span class="label">Video Demo</span>
+            <a
+              class="modal-video-link"
+              data-video-link
+              target="_blank"
+              rel="noopener"
+            >
+              Watch on YouTube
+            </a>
+          </div>
+          <div class="video-embed">
+            <iframe
+              data-video-iframe
+              title="Project demo video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" data-modal="reaction-tester">
+      <div class="modal glass">
+        <button class="modal-close" aria-label="Close details">&times;</button>
+        <h3>Reaction Time Tester</h3>
+        <p>
+          A small interactive experiment that measures how quickly users respond when a visual cue appears.
+          It was built to explore timing, state handling, and micro-interactions in a pure JavaScript setup.
+        </p>
+        <ul class="modal-list">
+          <li>Randomized delay before the cue appears to prevent guesswork.</li>
+          <li>Captures and displays reaction times for each attempt.</li>
+          <li>Simple, focused UI to keep attention on the interaction.</li>
+          <li>Implemented with HTML, CSS, and vanilla JavaScript only.</li>
+        </ul>
+
+        <section class="modal-video" data-video-section hidden>
+          <div class="modal-video-header">
+            <span class="label">Video Demo</span>
+            <a
+              class="modal-video-link"
+              data-video-link
+              target="_blank"
+              rel="noopener"
+            >
+              Watch on YouTube
+            </a>
+          </div>
+          <div class="video-embed">
+            <iframe
+              data-video-iframe
+              title="Project demo video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" data-modal="qr-app">
+      <div class="modal glass">
+        <button class="modal-close" aria-label="Close details">&times;</button>
+        <h3>Custom QR application</h3>
+        <p>
+          A QR generator built to create visually interesting QR codes for personal or business use.
+          The focus was on reliable generation, custom styling, and a clean UI around the workflow.
+        </p>
+        <ul class="modal-list">
+          <li>Generate QR codes from text/URLs with customization options.</li>
+          <li>Uses Python libraries (Segno / qrcode_artistic) for styled QR output.</li>
+          <li>Flask-backed web flow with a simple HTML/CSS frontend.</li>
+          <li>Export-ready images suitable for sharing and printing.</li>
         </ul>
 
         <section class="modal-video" data-video-section hidden>
